@@ -1,11 +1,9 @@
 #!/usr/bin/env python
-import findspark
-findspark.init()
-
 from operator import add
 from pyspark import SparkContext
-from pyspark import SparkConf
 
+
+if __name__ == "__main__":
     sc = SparkContext(appName="WordCount")
     lines = sc.textFile("hdfs:///marco/README.txt")
     counts = lines.flatMap(lambda x: x.split(' ')) \
